@@ -15,13 +15,15 @@
 
 ## Introducción<a name="intro"></a>
 
+En esta practica se va a desarrollar una aplicacion con la cual vamos a poder añadir, modificar, eliminar, listar y leer notas de un usuario concreto. Para interactuar con ella tendremos que usar la linea de comandos y para eso usaremos un paquete llamado **yargs**, que se programara de tal forma que el usuario dandole unos parametros a la placacion esta realizara las tareas que desea el usuario. Usaremos otro paquete llamado **chalk** para, por decirlo de alguna manera "embellecer" los resultados de la palicacion.
 
+Esta sera la primera vez que se trabaja con API, en concreto usremos la API sincrona proporcianada por **Node.js** para trabajar con el sistema de ficheros, ya que cuenta con muchas funciones interesantes para el manejo de estos elementos.
 
 ---------------------
 
 ## Desarrollo<a name="desarrollo"></a>
 
-### Clase Alimento
+### Clase Note
 
 
 
