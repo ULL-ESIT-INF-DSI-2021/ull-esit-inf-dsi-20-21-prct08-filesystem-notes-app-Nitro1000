@@ -1,6 +1,8 @@
 {
     "entryPoints":[
-        
+        "./src/command.ts",
+        "./src/note-app.ts",
+        "./src/note.ts"
     ],
     "out": "./doc"
 
