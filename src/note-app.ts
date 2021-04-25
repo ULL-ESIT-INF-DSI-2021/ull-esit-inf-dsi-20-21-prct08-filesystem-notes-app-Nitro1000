@@ -1,4 +1,4 @@
-import {Note} from './note';
+import { Note } from './note';
 import * as fs from 'fs';
 // import * as chalk from 'chalk';
 
@@ -11,7 +11,7 @@ export class NoteApp {
   /**
    * Constructor de la clase
    */
-  constructor() {}
+  constructor() { }
 
   /**
    * Añadir una nota respecto a un usuario en especifico
@@ -21,18 +21,17 @@ export class NoteApp {
    * @param color Color de la nota
    */
   addNote(user: string, title: string, body: string,
-      color: string): void {
+    color: string) {
     if (!fs.existsSync(`dataUsers/${user}`)) {
       console.log(`Se creara el directorio ${user}`);
-      fs.mkdirSync(`dataUsers/${user}`, {recursive: true});
+      fs.mkdirSync(`dataUsers/${user}`, { recursive: true });
     }
     const note = new Note(title, body, color);
     if (!fs.existsSync(`dataUsers/${user}/${title}.json`)) {
       fs.writeFileSync(`dataUsers/${user}/${title}.json`, note.write());
       console.log(chalk.green('New note added!'));
-    } else {
+    } else
       console.log(chalk.red('Note title taken!'));
-    }
   }
 
   /**
@@ -40,13 +39,13 @@ export class NoteApp {
    * @param user Nombre del usuario
    * @param title Titulo de la nota
    */
-  removeNote(user: string, title: string): void {
+  removeNote(user: string, title: string) {
     if (fs.existsSync(`dataUsers/${user}/${title}.json`)) {
       fs.rmSync(`dataUsers/${user}/${title}.json`);
       console.log(chalk.green('Note removed!'));
-    } else {
+    } else
       console.log(chalk.red('Note not found'));
-    }
+
   }
 
   /**
@@ -57,14 +56,14 @@ export class NoteApp {
    * @param color Color de la nota
    */
   modifyNote(user: string, title: string, body: string,
-      color: string): void {
+    color: string) {
     if (fs.existsSync(`dataUsers/${user}/${title}.json`)) {
       const note = new Note(title, body, color);
       fs.writeFileSync(`dataUsers/${user}/${title}.json`, note.write());
-      console.log(chalk.green('Nota modificated!'));
-    } else {
+      console.log(chalk.green('Modified note!'));
+    } else
       console.log(chalk.red('Note not found'));
-    }
+
   }
 
   /**
@@ -96,8 +95,7 @@ export class NoteApp {
       const note = new Note(JSONote.title, JSONote.body, JSONote.color);
       console.log(chalk.keyword(note.getColor())(note.getTitle()));
       console.log(chalk.keyword(note.getColor())(note.getBody()));
-    } else {
+    } else
       console.log(chalk.red('Note not found'));
-    }
   }
 }
